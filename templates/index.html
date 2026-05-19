@@ -1,0 +1,184 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Classification</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet"> 
+	<style>
+	
+	.bg-dark {
+		background-color: 	#4B92BB!important;
+	}
+	#result {
+		color: #0a1c4ed1;
+	}
+	body
+{
+    background-image: url("https://wallpaperaccess.com/full/327148.jpg");
+    background-size: cover;
+}
+
+p1 {
+  font-size: 40px;
+}
+
+.right-align {
+  float: left;
+  margin-right: 10px;
+}
+.left-align {
+  float: left;
+  margin-right: 100px;
+}
+
+.image-left-top {
+  position: absolute;
+  left: 580;
+  top: 15;
+}
+
+.image-right-bottom {
+  position: absolute;
+  left: 830;
+  bottom: -1490;
+}
+
+
+
+	</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark" >
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>Smart bridge</b> </a>
+
+			<li><a href="#HOME" style="color: orange; font-size: 20px;"><b>HOME</b></a></li>
+			<li><a href="#ABOUT" style="color: orange; font-size: 20px;"><b>ABOUT</b></a></li>
+			<li><a href="#IMAGES" style="color: orange; font-size: 20px;"><b>IMAGES</b></a></li>
+			<li><a href="#PREDICT" style="color: orange; font-size: 20px;"><b>PREDICT</b></a></li>
+
+
+
+      </ul>
+
+		</div>
+    </nav>
+
+	<section id="HOME">
+
+		<nav class="navbar navbar-dark" style="background-color: orange;">
+        <div class="container">
+            <a class="navbar-brand" href="#"><br><br><p1><center><b>Weather Classification Using Transfer Learning</b></center></p1><br><br><img src="https://images.pexels.com/photos/11439339/pexels-photo-11439339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg" >
+				<br><br><br><br><br><br><br><br></a>
+
+      </ul>
+
+		</div>
+    </nav>
+
+
+    </section>
+
+    <div class="container">
+        <div id="content" style="margin-top:2em">
+		<div class="container">
+		  <div class="row">
+			<div class="col-sm-6 bd">
+
+				<section id="ABOUT">
+			  <h3><b>Weather Classification :</b> </h3>
+			  <br>
+			  <p>From a weather classification perspective, different weather conditions can be classified into categories such as cloudy, rainy, sunny, and sunrise. The task involves training a deep learning model using transfer learning techniques.</p>
+
+				<p>Transfer learning allows us to leverage pre-trained models that were trained on large datasets to extract meaningful features from images. A popular pre-trained model for image classification is VGG19.Hence we used VGG19 model has been trained on a large dataset of various images and has learned to extract useful features..</p>
+					<p>To apply transfer learning for weather classification, we used the VGG19 model as a base model and fine-tune it on a dataset specific to weather conditions. The dataset would consist of images representing different weather conditions such as cloudy, rainy, sunny, and sunrise.</p>
+
+
+
+					<img src="https://images.pexels.com/photos/11556779/pexels-photo-11556779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg" class="image-left-top" style="width: 700px; height: 400px;">
+
+				</section>
+
+			</div>
+			  <div>
+				  <br>
+				  <br>
+			  <section id="IMAGES">
+      <h2>Images</h2><br>
+
+				  <img src="https://images.pexels.com/photos/13534003/pexels-photo-13534003.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1jpg" class="image-left-bottom" style="width: 550px; height: 400px;">
+				  <img src="https://images.pexels.com/photos/11456610/pexels-photo-11456610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="image-right-bottom" style="width: 550px; height: 400px;position:relative; left:150px; top:-5px; ">
+<br>
+				  <img src="https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="image-left-bottom" style="width: 550px; height: 400px;">
+				  <img src="https://images.pexels.com/photos/763398/pexels-photo-763398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="image-right-bottom" style="width: 550px; height: 400px;position:relative; left:150px; top:-5px; ">
+
+
+   	 		  </section>
+				  </div>
+
+			<div class="col-sm-6">
+
+				<section id="PREDICT">
+
+				<div>
+
+						<div style = "position:relative; left:0px; top:+200px; background-color:bg-dark;">
+						<h4><br>Predict</br></h4>
+					<h4>Upload Image Here To Identify the Weather</h4>
+
+
+			<form action = "http://localhost:5000/" id="upload-file" method="post" enctype="multipart/form-data">
+				<label for="imageUpload" class="upload-label">
+					Choose...
+				</label>
+
+				<input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg">
+			</form>
+
+
+
+			<div class="image-section" style="display:none;">
+				<div class="img-preview">
+					<div id="imagePreview">
+					</div>
+				</div>
+				</section>
+				<div>
+					<div style = "position:relative; left:0px; top:+230px;">
+					<button type="button" class="btn btn-info btn-lg " id="btn-predict">Predict!</button>
+				</div>
+			</div>
+
+			<div class="loader" style="display:none;"></div>
+
+			<h3>
+				<div style = "position:relative; left:350px; top:+20px; ">
+				<span id="result"> </span>
+				</div>
+			</h3>
+
+
+		</div>
+
+			</div>
+
+		  </div>
+
+		</div>
+		</div>
+
+    </div>
+</body>
+
+<footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>    
+</footer>
+</html>
+
